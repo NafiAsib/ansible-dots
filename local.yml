@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   #  become: true
+  vars:
+   kernel_info: ansible_kernel
 
   pre_tasks:
   - name: update repositories
