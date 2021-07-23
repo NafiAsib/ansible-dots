@@ -3,5 +3,7 @@
 ### How to use
 
 ```bash
-$ sudo ansible-pull -U https://github.com/NafiAsib/ansible-dots.git
+$ ansible-pull -U https://github.com/NafiAsib/ansible-dots.git --ask-become-pass
+$ # sudo ansible-pull -U https://github.com/NafiAsib/ansible-dots.git
+$ # with sudo, you're always root unless specified
 ```
