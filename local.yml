@@ -1,9 +1,11 @@
 ---
 - hosts: localhost
   connection: local
-  #  become: true
+  become: no
   vars:
    kernel_info: ansible_kernel
+   user_id: ansible_user_id
+   home_dir: {{ lookup('env', 'HOME') }}
 
   pre_tasks:
   - name: update repositories
