@@ -1,6 +1,6 @@
-- name: get username
-  become: false
-  local_action: command whoami
-  register: host_name
+# - name: get username
+#   become: false
+#   local_action: command whoami
+#   register: host_name
 
-- debug: var=host_name
+- debug: var="{{ lookup('env', 'USER') }}"
