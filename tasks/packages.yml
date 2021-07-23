@@ -10,10 +10,9 @@
       - tree
       - dconf-cli
 
-kernel_info: ansible_kernel
-
 - name: WSL2 specific packages
   become: true
+  kernel_info: ansible_kernel
   apt:
     name:
       - powerline
