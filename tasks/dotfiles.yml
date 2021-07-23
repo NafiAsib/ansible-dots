@@ -7,4 +7,4 @@
 
 - name: print hostname
   become: false
-  debug: var={{ lookup('env', 'HOME') }}
+  debug: var=lookup('env', 'HOME')
