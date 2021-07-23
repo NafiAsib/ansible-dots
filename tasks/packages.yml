@@ -10,6 +10,12 @@
       - tree
       - zsh
 
+- name: change current shell to zsh
+  become: true
+  user: 
+    name: "{{ user_id }}"
+    shell: /bin/zsh
+
 - name: Pop!_OS specific packages
   become: true
   apt:
