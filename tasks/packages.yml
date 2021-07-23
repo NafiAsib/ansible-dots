@@ -8,7 +8,14 @@
       - htop
       - bpytop
       - tree
-      - dconf-cli
+      - zsh
+
+- name: Pop!_OS specific packages
+  become: true
+  apt:
+    name:
+    - dconf-cli
+  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
 
 - name: WSL2 specific packages
   become: true
