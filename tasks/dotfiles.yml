@@ -5,6 +5,6 @@
 # 
 # - debug: var=host_name.stdout
 
-- name: print hostname
-  become: false
-  debug: var=lookup('env', 'HOME')
+# - name: print hostname
+#   become: false
+- debug: var=lookup('env', 'HOME')
