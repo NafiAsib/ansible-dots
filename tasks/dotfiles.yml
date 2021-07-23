@@ -3,4 +3,6 @@
 #   local_action: command whoami
 #   register: host_name
 
-- debug: var="{{ lookup('env', 'USER') }}"
+- name: print hostname
+  become: false
+  debug: var="{{ lookup('env', 'USER') }}"
