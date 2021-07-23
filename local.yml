@@ -3,9 +3,9 @@
   connection: local
   become: no
   vars:
-   kernel_info: ansible_kernel
-   user_id: ansible_user_id
-   home_dir: ansible_user_dir 
+   kernel_info: "{{ ansible_kernel }}"
+   user_id: "{{ ansible_user_id }}"
+   home_dir: "{{ ansible_user_dir }}"
 
   pre_tasks:
   - name: update repositories
