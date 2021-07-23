@@ -10,4 +10,12 @@
       - tree
       - dconf-cli
 
+kernel_info: ansible_kernel
 
+- name: WSL2 specific packages
+  become: true
+  apt:
+    name:
+      - powerline
+      - fonts-powerline
+  when: '"WSL2" in kernel_info'
