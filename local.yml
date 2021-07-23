@@ -5,7 +5,7 @@
   vars:
    kernel_info: ansible_kernel
    user_id: ansible_user_id
-   home_dir: {{ lookup('env', 'HOME') }}
+   home_dir: lookup('env', 'HOME') 
 
   pre_tasks:
   - name: update repositories
