@@ -13,7 +13,7 @@
 - name: clone zsh-syntax-highlighting
   git:
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ home_dir }}"
+    dest: "{{ home_dir }}/zsh-syntax-highlighting"
   when: not zshsyntax.stat.exists
 
 # - name: install sharship.rs
