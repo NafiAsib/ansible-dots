@@ -34,7 +34,7 @@
 
 - name: symlink .zshrc
   file:
-    src: "{{ doftiles_dir }}/.zshrc"
+    src: "{{ dotfiles_dir }}/.zshrc"
     dest: "{{ home_dir }}/.zshrc"
     state: link
 
