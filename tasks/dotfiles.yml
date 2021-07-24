@@ -8,13 +8,13 @@
 
 - name: check for zsh-syntax-highlighting
   stat: path=/$HOME/zsh-syntax-highlighting
-  register: zsh-syntax-highlight
+  register: zshsyntax
 
 - name: clone zsh-syntax-highlighting
   git:
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     dest: "{{ home_dir }}"
-  when: not zsh-syntax-highlight.stat.exists
+  when: not zshsyntax.stat.exists
 
 # - name: install sharship.rs
 #   become: true
