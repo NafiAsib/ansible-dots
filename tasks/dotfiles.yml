@@ -1,8 +1,3 @@
-# - name: get username
-#   become: false
-#   local_action: command whoami
-#   register: host_name
-# 
 - debug: var=home_dir
 - debug: var=user_id
 
@@ -10,6 +5,20 @@
   git:
     repo: git@github.com:NafiAsib/dotfiles.git
     dest: "{{ home_dir }}/dotfiles"
+
+- name: check .config folder
+  stat: path=/$HOME/.config
+  register: configdir
+
+- name: print if not exists
+  debug:
+    msg: "Doesn't exist"
+  when: not configdir.stat.exists
+
+- name: print if exists
+  debug:
+    msg: "exists"
+  when: configdir.stat.exists
 
 - name: symlink tmux.conf
   file:
