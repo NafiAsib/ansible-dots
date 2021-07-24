@@ -5,9 +5,9 @@
 - name: get dotfiles repo
   git:
     repo: git@github.com:NafiAsib/dotfiles.git
-    dest: "{{ home_dir }}/dotfiles"
+    dest: "{{ dotfiles_dir }}"
 
-- name: check .config status 
+- name: check .config dir status 
   stat: path=/$HOME/.config
   register: configdir
 
@@ -17,26 +17,52 @@
     state: directory
   when: not configdir.stat.exists
 
-- name: check .cache/zsh status
+- name: check .cache/zsh dir status
   stat: path=/$HOME/.cache/zsh
   register: zshcache
 
-- name: create cache dir
+- name: create .cache/zsh dir
   file:
     path: "{{ home_dir }}/.cache/zsh"
     state: directory
   when: not zshcache.stat.exists
 
+- name: create .config/zsh/ dir
+  file: 
+    path: "{{ home_dir }}/.config/zsh"
+    state: directory
 
-- name: print if not exists
-  debug:
-    msg: "Doesn't exist"
-  when: not configdir.stat.exists
+- name: symlink .zshrc
+  file:
+    src: "{{ doftiles_dir }}/.zshrc"
+    dest: "{{ home_dir }}/.zshrc"
+    state: link
 
-- name: print if exists
-  debug:
-    msg: "exists"
-  when: configdir.stat.exists
+- name: symlink .config/zsh/git.zsh
+  file:
+    src: "{{ dotfiles_dir }}/.config/zsh/git.zsh"
+    dest: "{{ home_dir }}/.config/zsh/git.zsh"
+    state: link
+
+- name: symlink .config/zsh/prompt.zsh-theme
+  file:
+    src: "{{ dotfiles_dir }}/.config/zsh/prompt.zsh-theme"
+    dest: "{{ home_dir }}/.config/zsh/prompt.zsh-theme"
+    state: link
+
+- name: create nvim dir
+  file:
+    path: "{{ home_dir }}/.config/nvim"
+    state: directory
+
+- name: symlink init.vim
+  file:
+    src: "{{ dotfiles_dir }}/.config/nvim/init.vim"
+    dest: "{{ home_dir }}/.config/nvim/init.vim"
+    state: link
+
+- name: install nvim plugins
+  command: nvim --headless +PlugInstall +qall
 
 - name: symlink tmux.conf
   file:
