@@ -6,7 +6,7 @@
    kernel_info: "{{ ansible_kernel }}"
    user_id: "{{ ansible_user_id }}"
    home_dir: "{{ ansible_user_dir }}"
-   dotfiles_dir: "{{ ansible_user_dir + '/dotfiles }}"
+   dotfiles_dir: "{{ ansible_user_dir }}-'/dotfiles'"
 
   pre_tasks:
   - name: update repositories
