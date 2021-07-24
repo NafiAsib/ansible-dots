@@ -6,9 +6,19 @@
 - debug: var=home_dir
 - debug: var=user_id
 
-- name: install sharship.rs
-  become: true
-  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y
+- name: check for zsh-syntax-highlighting
+  stat: path=/$HOME/zsh-syntax-highlighting
+  register: zsh-syntax-highlight
+
+- name: clone zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: {{ home_dir }}
+  when: not zsh-syntax-highlight.stat.exists
+
+# - name: install sharship.rs
+#   become: true
+#   shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y
 # - name: print hostname
 #   become: false
 #   debug: msg="{{ home_dir }}"
