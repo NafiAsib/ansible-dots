@@ -6,16 +6,21 @@
 - debug: var=home_dir
 - debug: var=user_id
 
-- name: check for zsh-syntax-highlighting
-  stat: path=/$HOME/zsh-syntax-highlighting
-  register: zshsyntax
-
-- name: clone zsh-syntax-highlighting
+- name: get dotfiles repo
   git:
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ home_dir }}/zsh-syntax-highlighting"
-  when: not zshsyntax.stat.exists
+    repo: git@github.com:NafiAsib/dotfiles.git
+    dest: "{{ home_dir }}/dotfiles"
 
+# - name: check for zsh-syntax-highlighting
+#   stat: path=/$HOME/zsh-syntax-highlighting
+#   register: zshsyntax
+# 
+# - name: clone zsh-syntax-highlighting
+#   git:
+#     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+#     dest: "{{ home_dir }}/zsh-syntax-highlighting"
+#   when: not zshsyntax.stat.exists
+#
 # - name: install sharship.rs
 #   become: true
 #   shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y
