@@ -11,6 +11,14 @@
     repo: git@github.com:NafiAsib/dotfiles.git
     dest: "{{ home_dir }}/dotfiles"
 
+- name: symlink tmux.conf
+  file:
+    src: "{{ home_dir }}/dotfiles/tmux.conf"
+    dest: "{{ home_dir }}"
+    owner: "{{ user_id }}"
+    group: "{{ user_id }}"
+    state: link
+  
 # - name: check for zsh-syntax-highlighting
 #   stat: path=/$HOME/zsh-syntax-highlighting
 #   register: zshsyntax
