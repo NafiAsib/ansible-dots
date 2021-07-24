@@ -1,14 +1,32 @@
 - debug: var=home_dir
 - debug: var=user_id
+- debug: var=dotfile_dir
 
 - name: get dotfiles repo
   git:
     repo: git@github.com:NafiAsib/dotfiles.git
     dest: "{{ home_dir }}/dotfiles"
 
-- name: check .config folder
+- name: check .config status 
   stat: path=/$HOME/.config
   register: configdir
+
+- name: create .config if doesn't exist
+  file:
+    path: "{{ home_dir }}/.config"
+    state: directory
+  when: not configdir.stat.exists
+
+- name: check .cache/zsh status
+  stat: path=/$HOME/.cache/zsh
+  register: zshcache
+
+- name: create cache dir
+  file:
+    path: "{{ home_dir }}/.cache/zsh"
+    state: directory
+  when: not zshcache.stat.exists
+
 
 - name: print if not exists
   debug:
