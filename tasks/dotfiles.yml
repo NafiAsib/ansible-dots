@@ -13,7 +13,7 @@
 
 - name: symlink tmux.conf
   file:
-    src: "{{ home_dir }}/dotfiles/tmux.conf"
+    src: "{{ home_dir }}/dotfiles/.tmux.conf"
     dest: "{{ home_dir }}"
     owner: "{{ user_id }}"
     group: "{{ user_id }}"
