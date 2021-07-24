@@ -7,7 +7,8 @@
 - debug: var=user_id
 
 - name: install sharship.rs
-  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+  become: true
+  command: sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 # - name: print hostname
 #   become: false
 #   debug: msg="{{ home_dir }}"
