@@ -1,3 +1,7 @@
+- debug: var=home_dir
+- debug: var=user_id
+- debug: var=dotfiles_dir
+
 - name: Install packages
   become: true
   apt:

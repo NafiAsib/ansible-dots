@@ -1,6 +1,6 @@
-- debug: var=home_dir
-- debug: var=user_id
-- debug: var=dotfiles_dir
+# - debug: var=home_dir
+# - debug: var=user_id
+# - debug: var=dotfiles_dir
 
 - name: get dotfiles repo
   git:
