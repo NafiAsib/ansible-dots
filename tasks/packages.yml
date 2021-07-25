@@ -13,6 +13,7 @@
       - npm
 
 - name: install npm packages
+  become: yes
   npm:
     name: "@angular/cli"
     global: yes
