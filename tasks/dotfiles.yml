@@ -72,6 +72,12 @@
     group: "{{ user_id }}"
     state: link
   
+- name: install spaceship
+  become: yes
+  npm:
+    name: "spaceship-prompt"
+    global: yes
+    state: present
 # - name: check for zsh-syntax-highlighting
 #   stat: path=/$HOME/zsh-syntax-highlighting
 #   register: zshsyntax
