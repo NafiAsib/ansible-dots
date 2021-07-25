@@ -14,8 +14,7 @@
 
 - name: install npm packages
   npm:
-    name:
-      - "@angular/cli"
+    name: "@angular/cli"
     global: yes
     state: present
 
