@@ -9,6 +9,15 @@
       - bpytop
       - tree
       - zsh
+      - nodejs
+      - npm
+
+- name: install npm packages
+  npm:
+    name:
+      - "@angular/cli"
+    global: yes
+    state: present
 
 - name: change current shell to zsh
   # become: yes 
