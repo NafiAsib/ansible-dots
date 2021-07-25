@@ -8,6 +8,10 @@
    home_dir: "{{ ansible_user_dir }}"
    dotfiles_dir: "{{ ansible_user_dir + '/dotfiles'}}"
 
+- debug: var=home_dir
+- debug: var=user_id
+- debug: var=dotfiles_dir
+
   pre_tasks:
   - name: update repositories
     become: true

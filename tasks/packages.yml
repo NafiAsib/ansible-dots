@@ -30,7 +30,7 @@
   apt:
     name:
     - dconf-cli
-  when: ansible_distribution in ["Pop!_OS", "Ubuntu"]
+  when: ansible_distribution in ["Pop!_OS"]
 
 - name: WSL2 specific packages
   become: true
