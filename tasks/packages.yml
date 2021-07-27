@@ -10,7 +10,6 @@
       - neovim
       - tmux
       - htop
-      - bpytop
       - tree
       - zsh
       - nodejs
