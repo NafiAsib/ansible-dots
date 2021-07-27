@@ -87,14 +87,34 @@
     owner: "{{ user_id }}"
     group: "{{ user_id }}"
     state: link
+
+- name: get spaceship repo
+  git:
+    repo: https://github.com/spaceship-prompt/spaceship-prompt.git
+    dest: "{{ home_dir }}/.config/zsh/spaceship-prompt"
     
-- name: install spaceship
-  become: yes
-  become_user: "{{ user_id }}"
-  npm:
-    name: "spaceship-prompt"
-    global: yes
-    state: present
+ - name: create zsh directory if not exists
+   stat: path=/usr/local/share/zsh/site-functions
+   register: sitefndir
+   
+- name: create site-funcitons directory
+  file:
+    path: /usr/local/share/zsh/site-functions
+    state: directory
+  when: not sitefndir.stat.exists
+ 
+- name: symlink spaceship prompt
+  file:
+    src: "{{ home_dir }}/.config/zsh/spaceship-prompt/spaceship.zsh"
+    dest: /usr/local/share/zsh/site-functions/prompt_spaceship_setup
+    state: link
+#- name: install spaceship
+#  become: yes
+#  become_user: "{{ user_id }}"
+#  npm:
+#    name: "spaceship-prompt"
+#    global: yes
+#    state: present
 # - name: check for zsh-syntax-highlighting
 #   stat: path=/$HOME/zsh-syntax-highlighting
 #   register: zshsyntax
