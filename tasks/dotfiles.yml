@@ -93,9 +93,9 @@
     repo: https://github.com/spaceship-prompt/spaceship-prompt.git
     dest: "{{ home_dir }}/.config/zsh/spaceship-prompt"
     
- - name: create zsh directory if not exists
-   stat: path=/usr/local/share/zsh/site-functions
-   register: sitefndir
+- name: create zsh directory if not exists
+  stat: path=/usr/local/share/zsh/site-functions
+  register: sitefndir
    
 - name: create site-funcitons directory
   file:
