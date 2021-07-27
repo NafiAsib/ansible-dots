@@ -4,7 +4,7 @@
 
 - name: get dotfiles repo
   git:
-    repo: git@github.com:NafiAsib/dotfiles.git
+    repo: https://github.com/NafiAsib/dotfiles.git
     dest: "{{ dotfiles_dir }}"
 
 - name: check .config dir status 
