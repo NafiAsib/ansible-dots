@@ -93,7 +93,7 @@
     repo: https://github.com/spaceship-prompt/spaceship-prompt.git
     dest: "{{ home_dir }}/.config/zsh/spaceship-prompt"
     
-- name: create zsh directory if not exists
+- name: check zsh/site-functions dir
   stat: path=/usr/local/share/zsh/site-functions
   register: sitefndir
    
@@ -104,6 +104,7 @@
   when: not sitefndir.stat.exists
  
 - name: symlink spaceship prompt
+  become: yes
   file:
     src: "{{ home_dir }}/.config/zsh/spaceship-prompt/spaceship.zsh"
     dest: /usr/local/share/zsh/site-functions/prompt_spaceship_setup
