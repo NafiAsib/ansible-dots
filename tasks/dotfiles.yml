@@ -89,7 +89,7 @@
     state: link
     
 - name: install spaceship
-  become: yes
+  #become: yes
   npm:
     name: "spaceship-prompt"
     global: yes
