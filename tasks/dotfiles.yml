@@ -72,15 +72,15 @@
     group: "{{ user_id }}"
     state: link
     
- - name: symlink .gitconfig
+- name: symlink .gitconfig
   file:
-    src: "{{ home_dir }}/dotfiles/.gitconfig"
-    dest: "{{ home_dir }}/.gitconfig"
+		src: "{{ home_dir }}/dotfiles/.gitconfig"
+		dest: "{{ home_dir }}/.gitconfig"
     owner: "{{ user_id }}"
     group: "{{ user_id }}"
     state: link
   
- - name: symlink global .gitignore
+- name: symlink global .gitignore
   file:
     src: "{{ home_dir }}/dotfiles/.gitignore"
     dest: "{{ home_dir }}/.gitignore"
