@@ -90,6 +90,7 @@
     
 - name: install spaceship
   become: yes
+  become_user: "{{ user_id }}"
   npm:
     name: "spaceship-prompt"
     global: yes
