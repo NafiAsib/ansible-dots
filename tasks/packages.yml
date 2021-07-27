@@ -23,7 +23,7 @@
     state: present
 
 - name: change current shell to zsh
-  # become: yes 
+  become: yes 
   user: 
     name: "{{ user_id }}"
     shell: /bin/zsh
