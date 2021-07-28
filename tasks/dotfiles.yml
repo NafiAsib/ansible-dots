@@ -109,6 +109,16 @@
     src: "{{ home_dir }}/.config/zsh/spaceship-prompt/spaceship.zsh"
     dest: /usr/local/share/zsh/site-functions/prompt_spaceship_setup
     state: link
+    
+- name: get zsh-autosuggesions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ home_dir }}/.config/zsh/zsh-autosuggestions"
+    
+- name: get zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ home_dir }}/.config/zsh/zsh-syntax-highlighting"
 #- name: install spaceship
 #  become: yes
 #  become_user: "{{ user_id }}"
