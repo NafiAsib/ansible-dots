@@ -16,3 +16,4 @@ $ # with sudo, you're always root unless specified
 ### TODO
 * Packages
 - [ ] [exa](https://the.exa.website/install/linux#manual) ***might not need manual installation after 22.04 lTS***
+- [ ] [nvm](https://github.com/nvm-sh/nvm)
