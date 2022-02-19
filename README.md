@@ -15,4 +15,4 @@ $ # with sudo, you're always root unless specified
 
 ### TODO
 * Packages
-- [ ] exa
+- [ ] [exa](https://the.exa.website/install/linux#manual) ***might not need manual installation after 22.04 lTS***
