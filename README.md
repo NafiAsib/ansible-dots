@@ -6,11 +6,11 @@ This is an ansible project to configure my workstations. This project utilizes a
 ### How to use
 ***You should not use this directly, rather look up my tasks and create one for your own purpose***
 ```bash
-$ sudo apt install ansible # if ansible is not installed
+$ sudo apt install ansible
 $ ansible-pull -U https://github.com/NafiAsib/ansible-dots.git --ask-become-pass
-$ # sudo ansible-pull -U https://github.com/NafiAsib/ansible-dots.git
-$ # with sudo, you're always root unless specified
 ```
+***dont't use `sudo ansible-pull`, otherwise you're always root user unless specified!***
+
 ![image](https://user-images.githubusercontent.com/38901581/127496564-7360f7cb-5130-427f-96e0-d58602ea2e98.png)
 
 ### TODO
