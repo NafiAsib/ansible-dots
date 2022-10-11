@@ -17,3 +17,7 @@ $ ansible-pull -U https://github.com/NafiAsib/ansible-dots.git --ask-become-pass
 * Packages
 - [ ] [exa](https://the.exa.website/install/linux#manual) ***might not need manual installation after 22.04 lTS***
 - [ ] [nvm](https://github.com/nvm-sh/nvm)
+- [ ] docker
+- [ ] docker compose
+- [ ] `hosts` file
+- [ ] study more about `ansible`
