@@ -21,3 +21,4 @@ $ ansible-pull -U https://github.com/NafiAsib/ansible-dots.git --ask-become-pass
 - [ ] docker compose
 - [ ] `hosts` file
 - [ ] study more about `ansible`
+- [ ] better log
